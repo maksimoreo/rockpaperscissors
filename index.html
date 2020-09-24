@@ -7,7 +7,88 @@
     <body>
         <p>nothing is here, open console and play the game!</p>
         <script>
+            function computerPlay() {
+                // choose a number from 0, 1, 2
+                let randomIndex = Math.floor(Math.random() * 3);
+                
+                let choice;
+                switch (randomIndex) {
+                    case 0:
+                        choice = "Rock";
+                        break;
+                    case 1:
+                        choice = "Paper";
+                        break;
+                    case 2:
+                        choice = "Scissors";
+                        break;
+                }
 
+                return choice;
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = playerSelection.toLowerCase();
+                computerSelection = computerSelection.toLowerCase();
+                
+                let result;
+                if (playerSelection === "rock")
+                {
+                    if (computerSelection === "rock")
+                        result = "Draw! Rock vs Rock";
+                    else if (computerSelection === "paper")
+                        result = "You Lose! Paper beats Rock";
+                    else if (computerSelection === "scissors")
+                        result = "You Win! Rock beats Scissors";
+                }
+                else if (playerSelection === "paper")
+                {
+                    if (computerSelection === "rock")
+                        result = "You Win! Paper beats Rock";
+                    else if (computerSelection === "paper")
+                        result = "Draw! Paper vs Paper";
+                    else if (computerSelection === "scissors")
+                        result = "You Lose! Scissors beat Paper";
+                }
+                else if (playerSelection === "scissors")
+                {
+                    if (computerSelection === "rock")
+                        result = "You Lose! Rock beats Scissors";
+                    else if (computerSelection === "paper")
+                        result = "You Win! Scissors beat paper";
+                    else if (computerSelection === "scissors")
+                        result = "Draw! Scissors vs Scissors";
+                }
+                
+                return result;
+            }
+
+            function game() {
+                // player input
+                console.log("Prompting user for input");
+                let playerSelection = prompt("plz choose beteween Rock, Paper and Scissors");
+                let playerSelectionLowered = playerSelection.toLowerCase();
+
+                // check if input is valid
+                if (playerSelectionLowered !== "rock" && playerSelectionLowered !== "paper" && playerSelectionLowered !== "scissors") {
+                    console.log(`wait r u going to play with a ${playerSelection}? thats not allowed`);
+                    return;
+                }
+
+                console.log(`Player has chosen ${playerSelection}.`);
+
+                // computer input
+                let computerSelection = computerPlay();
+                console.log(`Computer has chosen ${computerSelection}.`);
+
+                // result
+                result = playRound(playerSelection, computerSelection);
+                console.log(result);
+
+                console.log("Game ended! Reload the page to play again (F5 or Ctrl+R)");
+            }
+
+            game();
         </script>
     </body>
 </html>
