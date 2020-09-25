@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(43, 43, 43);
+    font: 20px "Courier New";
+    color: rgb(150, 255, 255);
+}
+
+p {
+    padding: 5px;
+    margin: 0;
+}
+
+#container {
+    width: 600px;
+    height: 400px;
+    margin: 150px auto 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+    background-color: #444444;
+}
+
+#result-text {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: white;
+}
+
+#button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+button {
+    width: 100px;
+    height: 80px;
+}
